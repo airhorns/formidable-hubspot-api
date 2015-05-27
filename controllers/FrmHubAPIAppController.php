@@ -493,8 +493,10 @@ class FrmHubAPIAppController{
                 $body = FrmAppHelper::maybe_json_decode($body);
             }
 
+            $body = json_encode($body);
             $shortcodes = FrmProAppHelper::get_shortcodes($body, $entry->form_id);
             $body = FrmProFieldsHelper::replace_shortcodes($body, $entry, $shortcodes);
+            $body = json_decode($body);
 
             $headers = array();
             $api_key = trim(get_post_meta($hook->ID, 'frm_api_key', true));

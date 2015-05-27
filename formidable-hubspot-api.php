@@ -8,7 +8,7 @@ Author: Harry Brundage
 Author URI: http://harry.me
 */
 
-function frm_forms_api_autoloader($class_name) {
+function frm_forms_hub_api_autoloader($class_name) {
     // Only load Frm classes here
     if ( ! preg_match('/^FrmHubAPI.+$/', $class_name) ) {
         return;
@@ -31,7 +31,7 @@ function frm_forms_api_autoloader($class_name) {
 }
 
 // Add the autoloader
-spl_autoload_register('frm_forms_api_autoloader');
+spl_autoload_register('frm_forms_hub_api_autoloader');
 
 FrmHubAPIAppController::load_hooks();
 FrmHubAPISettingsController::load_hooks();
